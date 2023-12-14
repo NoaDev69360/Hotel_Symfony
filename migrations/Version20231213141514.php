@@ -22,6 +22,7 @@ final class Version20231213141514 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE facture (id INT AUTO_INCREMENT NOT NULL, montant DOUBLE PRECISION NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE chambre CHANGE prix prix DOUBLE PRECISION NOT NULL');
+        $this->addSql('DROP TABLE client');
     }
 
     public function down(Schema $schema): void
