@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-5">Mes hotel</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Etoile</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td>{{ hotel.nom }}</td>
+                <td>{{ hotel.description }}</td>
+                <td>{{ hotel.etoile }}</td>
+                <td>
+                    <a href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
+                    <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                    <a href="{{ path('app_chambre_index', {'id': hotel.id}) }}">choisir</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hotel_new') }}">Create new</a>
+    <a href="{{ path('app_accueil') }}">Accueil</a>
+{% endblock %}

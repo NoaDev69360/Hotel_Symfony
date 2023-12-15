@@ -3,33 +3,27 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Hotel</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Réserver</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Chambre
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Suite</a></li>
-            <li><a class="dropdown-item" href="#">Double</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Seul</a></li>
-          </ul>
-        </li>
-      </ul>
+
+    <h1 class="text-center">Bienvenu</h1>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_client_index') }}">Voir toutes mes clients</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_chambre_index') }}">Voir toutes mes chambres</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_reservation_index') }}">Voir toutes mes reservation</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_hotel_index') }}">Voir toutes mes hotel</a></button>
     </div>
-  </div>
-</nav>
+
+    <h1 class="text-center">Test client</h1>
+    <div class="d-flex justify-content-center">
+        <form action="{{ path('app_reservation_new') }}" method="post">
+            <label for="client">Sélectionner un client :</label>
+            <select name="client" id="client">
+                {% for client in clients %}
+                    <option value="{{ client.id }}">{{ client.nom }} {{ client.prenom }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Faire une réservation</button>
+        </form>
+    </div>
+
 {% endblock %}

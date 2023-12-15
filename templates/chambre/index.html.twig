@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Mes chambres</h1>
+
+    <div class="row">
+        {% for chambre in chambres %}
+            <div class="col-lg-3">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Numero</th>
+                            <td>{{ chambre.numero }}</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>{{ chambre.type }}</td>
+                        </tr>
+                        <tr>
+                            <th>Prix</th>
+                            <td>{{ chambre.prix }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ chambre.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td>{{ chambre.image }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <a href="{{ path('app_chambre_show', {'id': chambre.id}) }}">show</a>
+                    <a href="{{ path('app_chambre_edit', {'id': chambre.id}) }}">edit</a>
+                    <a href="{{ path('app_reservation_new', {'id': chambre.id}) }}">Réserver</a>
+                </div>
+            </div>
+        {% else %}
+            <p>no records found</p>
+        {% endfor %}
+    </div>
+
+    <button type="button" class="btn btn-primary">
+        <a class="text-light" href="{{ path('app_chambre_new') }}">Create new</a>
+    </button>
+    <button type="button" class="btn btn-primary">
+        <a class="text-light" href="{{ path('app_client_index') }}">Mes clients</a>
+    </button>
+{% endblock %}
+
