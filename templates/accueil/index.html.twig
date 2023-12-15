@@ -13,4 +13,17 @@
         <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_hotel_index') }}">Voir toutes mes hotel</a></button>
     </div>
 
+    <h1 class="text-center">Test client</h1>
+    <div class="d-flex justify-content-center">
+        <form action="{{ path('app_reservation_new') }}" method="post">
+            <label for="client">Sélectionner un client :</label>
+            <select name="client" id="client">
+                {% for client in clients %}
+                    <option value="{{ client.id }}">{{ client.nom }} {{ client.prenom }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Faire une réservation</button>
+        </form>
+    </div>
+
 {% endblock %}

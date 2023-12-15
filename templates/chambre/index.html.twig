@@ -36,7 +36,7 @@
                 <div>
                     <a href="{{ path('app_chambre_show', {'id': chambre.id}) }}">show</a>
                     <a href="{{ path('app_chambre_edit', {'id': chambre.id}) }}">edit</a>
-                    {# <a href="{{ path('', {'id': chambre.id}) }}">Réserver</a> #}
+                    <a href="{{ path('app_reservation_new', {'id': chambre.id}) }}">Réserver</a>
                 </div>
             </div>
         {% else %}
