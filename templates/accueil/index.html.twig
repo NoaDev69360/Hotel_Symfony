@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">Bienvenu</h1>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_client_index') }}">Voir toutes mes clients</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_chambre_index') }}">Voir toutes mes chambres</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_reservation_index') }}">Voir toutes mes reservation</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('app_hotel_index') }}">Voir toutes mes hotel</a></button>
+    </div>
+
+{% endblock %}
